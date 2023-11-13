@@ -85,7 +85,8 @@ cookie1,2023-01-01T14:19:00+00:00
 cookie2,2023-01-01T14:19:00+00:00
 cookie3,2023-01-01T14:19:00+00:00
 cookie4,2023-02-01T14:19:00+00:00
-cookie5,2023-01-02T14:19:00+00:00""")       
+cookie5,2023-01-02T14:19:00+00:00
+cookie3,2023-03-01T14:19:00+00:00""")       
     def test_file_with_nontarget_dates_in_file(self, mock_file):
         file_path = "fake_file.csv"
         date = "2023-01-01"
@@ -112,7 +113,7 @@ cookie5,2023-01-02T14:19:00+00:00""")
 
     @patch("builtins.open", new_callable=mock_open, read_data="""cookie,timestamp
 cookie1,2023-01-01T14:19:00+00:00
-cookie2,2023-01-01T14:19:00+00:00
+cookie2,2023-02-01T14:19:00+00:00
 cookie3,2023-01-01T14:19:00+00:00""")
     def test_no_matching_date(self, mock_file):
         file_path = "fake_file.csv"
@@ -122,11 +123,11 @@ cookie3,2023-01-01T14:19:00+00:00""")
         self.assertEqual(result, expected_result)
         
     @patch("builtins.open", new_callable=mock_open, read_data="""cookie,timestamp
-cookie1,2023-01-01T14:19:00+00:00
-cookie2,2023-01-01T14:19:00+00:00
-cookie3,2023-01-01T14:19:00+00:00
-cookie1,2023-02-01T14:19:00+00:00
-cookie2,2023-02-01T14:19:00+00:00
+cookie1,9999-01-01T14:19:00+00:00
+cookie2,2023-03-01T14:19:00+00:00
+cookie3,2023-02-01T14:19:00+00:00
+cookie1,0000-02-01T14:19:00+00:00
+cookie2,2018-02-01T14:19:00+00:00
 cookie3,2023-02-01T14:19:00+00:00""")
     def test_no_date(self, mock_file):
         file_path = "fake_file.csv"

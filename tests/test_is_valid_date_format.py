@@ -3,10 +3,7 @@
 #    python -m unittest
 import unittest
 import unittest.mock as mock
-from unittest.mock import mock_open, patch
-
 import cookie_counter
-
 
 class TestOutput(unittest.TestCase):
     def test_correct_date(self):
@@ -20,7 +17,6 @@ class TestOutput(unittest.TestCase):
         self.assertFalse(cookie_counter.is_valid_date_format("16-01-05"))
         self.assertFalse(cookie_counter.is_valid_date_format("2016/01/05"))
         self.assertFalse(cookie_counter.is_valid_date_format(""))
-        
 
 if __name__ == "__main__":
     unittest.main()

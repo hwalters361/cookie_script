@@ -2,9 +2,8 @@
 # the codebase and run:
 #    python -m unittest
 import unittest
-import unittest.mock as mock
+import unittest.mock
 from unittest.mock import mock_open, patch
-
 import cookie_counter
 
 
@@ -21,13 +20,16 @@ fbcn5UAVanZf6UtG,2018-12-08T09:30:00+00:00
 """
     @patch("builtins.open", new_callable=mock_open, read_data=mock_file_content)
     def test_example_input1(self, mock_file):
+        # Check the first example in the problem statement
         file_path = "fake_file.csv"
         date = "2018-12-09"
         expected_result = "AtY0laUfhglK3lC7\n"
         result = cookie_counter.most_used_cookies(file_path, date)
         self.assertEqual(result, expected_result)
+        
     @patch("builtins.open", new_callable=mock_open, read_data=mock_file_content)
     def test_example_input2(self, mock_file):
+        # Check the second example in the problem statement
         file_path = "fake_file.csv"
         date = "2018-12-08"
 
@@ -84,7 +86,7 @@ cookie2,2023-01-01T14:19:00+00:00
 cookie3,2023-01-01T14:19:00+00:00
 cookie4,2023-02-01T14:19:00+00:00
 cookie5,2023-01-02T14:19:00+00:00""")       
-    def test_file_with_nontarget_dates(self, mock_file):
+    def test_file_with_nontarget_dates_in_file(self, mock_file):
         file_path = "fake_file.csv"
         date = "2023-01-01"
         result = cookie_counter.most_used_cookies(file_path, date)
@@ -95,6 +97,10 @@ cookie5,2023-01-02T14:19:00+00:00""")
         for item in result.split("\n"):
             if bool(item.strip()):
                 self.assertTrue(item in expected_result_set)
+                expected_result_set.remove(item)
+        
+        # check that result has covered every expected result (should be empty if we got every one)
+        self.assertEqual(len(expected_result_set), 0)
 
     @patch("builtins.open", new_callable=mock_open, read_data="")
     def test_empty_file(self, mock_file):
@@ -137,8 +143,6 @@ cookie3,2023-02-01T14:19:00+00:00""")
         
         # check that result has covered every expected result (should be empty if we got every one)
         self.assertEqual(len(expected_result_set), 0)
-
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -3,7 +3,6 @@ import cookie_counter
 import argparse
 import sys
 
-
 def main():
     parser = argparse.ArgumentParser(
         prog='MostActiveCookie',
@@ -16,8 +15,6 @@ def main():
     
     file_path = args.filename
     date = args.date
-    
-    
     
     out_str = cookie_counter.most_used_cookies(file_path, date)
     sys.stdout.write(out_str)

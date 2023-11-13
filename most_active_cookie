@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+import cookie_counter
+import argparse
+import sys
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        prog='MostActiveCookie',
+        description='Finds the most active cookie from a csv log of cookies',
+        usage='%(prog)s filename [-h] [-d DATE]'
+    )
+    parser.add_argument('filename')
+    parser.add_argument('-d', '--date')
+    args = parser.parse_args()
+    
+    file_path = args.filename
+    date = args.date
+    
+    
+    
+    out_str = cookie_counter.most_used_cookies(file_path, date)
+    sys.stdout.write(out_str)
+    return
+
+if __name__ == "__main__":
+    main()

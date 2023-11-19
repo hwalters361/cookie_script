@@ -1,4 +1,4 @@
-# coding_task-Exercise
+# Cookie Activity Script
 highest frequency usage cookies coding challenge, in Python.
 
 The script is run using the command specified in the prompt. Given a file "cookie_log.csv" exists in the same directory.

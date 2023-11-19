@@ -1,4 +1,4 @@
-# Quantcast-coding_task-Exercise
+# coding_task-Exercise
 Most Active Cookie coding challenge, in Python.
 
 The script is run using the command specified in the prompt. `$./most_active_cookie cookie_log.csv -d 2018-12-09` given a file "cookie_log.csv" exists in the same directory.

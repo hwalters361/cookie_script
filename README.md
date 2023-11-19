@@ -1,7 +1,7 @@
 # Cookie Activity Script
-highest frequency usage cookies coding challenge, in Python.
+highest frequency usage cookies coding challenge, in Python. 
 
-The script is run using the command specified in the prompt. Given a file "cookie_log.csv" exists in the same directory.
+A command line program in Python to process a CSV log file and return the most active cookie for specified day. The script is run using the command specified in the prompt.
 
 Unit tests can be run by navigating to the top-level directory of the codebase and running `python -m unittest`
 
